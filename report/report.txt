@@ -1,16 +1,33 @@
+Introduction
+------------
+In this paper we are going to briefly present the idea behind Genetic Algorithms in comparison with Mote Carlo Search algorithm for low Autocorrelation problem. We will start with a description of the fundamental problem statement and what the reason is of us doing implementing and comparing with MC. Further we will walk you through the implementation of Genetic Algorithm and explain pretty much our approach and what kind of issues we run into during the implementation. Afterwards we will present a table with our experiments to the required dimension(s) from both sides (GA and MC) along with plots and diagrams in which we prove which one of those algorithms has a lower autocorrelation. By the end we will draw the line with some discussion, in which one of those algorithms is better than the other and on behalf of this draw a solid conclusion. 
 
 
 Experiments
 -----------
-Each of the 
+Below you can find our results that we have executed based on the number of required dimensions. During the experiments we were able to get a better idea about low auto correlation comparison between Monte-carlo search and Genetic Algorithm. During the testing we run against few issues such as the lack of memory \footnote{Perhaps for the fact that we were using the Octave to run our experiments and so we were having number of issues regarding such as not willing to run on Linux and memory leak. We could have dogged this problem at first place if we have tried to use Matlab, but given the time limit and license issues we stuck with Octave}
 
 
 
 
+Problem description 
+-------------------
+Genetic Algorithm has specific way of solving problems rather than Monte Carlo search and we found difficulties on realization. Both algorithms have own constraints which are different from each other. First problem which we face was on generating population. There were two possible way of doing that: a) taking n-length bit string and equally divide it to subsets and take them as population (as shown in slide 3). b) generate multiple population of n-length bit string and in future select best of them. Secondly, problem with fitness function because at the beginning we use decoding function to evaluate subset. Last problem related to choosing right crossover and mutation probability. 
 
 
 
 Discussion and Conclusion
 -------------------------
-Summarize the results and conclude your report.
+During this assignment we learned few things, such as working with genetic algorithms and understanding the concept of it works (selection, crossover, mutation, etc..). We also had the chance to explore how optimization works and the working of Monte-Carlo search algorithm. By the end we believe we achieved the the idea of GA performance testing against to Monte Carlo (MC) search  which was provided for this assignment. 
 
+For some of us GA was quite brand new topic. As a CS student I never came across such a topic and so learning the concept and the idea was quite essential to get started with the assignment. The topics were well explained by the professor and his assistants during the lectures and the work-groups and session labs helped a lot during all these times. And so by the end we believe we got a solid understanding of the concept and so we were able to get a good grip on the assignment as well. 
+
+In terms of execution we were having a bit of difficulties regarding matlab. The university does provide a version of matlab on the workstations, but as you might know most of us work on their laptops and places other than being at the university. We decided to give Octave a go for this one but unfortunately it didn’t go pretty well. We believe the code we wrote was quite simplistic and somehow not expensive in terms of memory, yet Octave was having trouble executing and sometimes it produces different results on each run which was at some point confusing. On Linux we were unable to execute the code for some reason. We tried this on different Linux machines. The application kept crushing or the execution process was pretty slow. 
+
+In terms of solving low autocorrelation for binary strings. We believe we have achieved what we intended to achieve from the start point of this assignment which is proving GA has lower correlation than random search algorithm \footnote{Pure random search is often called Monte-Carlo Search}.
+
+Genetic Algorithms use randomness to create initial solutions, new individuals (via mutation and crossover operators) and even select individuals. However, selection tends to favor the most fittest individuals. Also, genetic operators are not purely random but use randomness to (often slightly) change individuals. GA is a stochastic search method. To explain the differences between the GA and a random search method it would be useful first, to explain the differences between the stochastic and random phenomena. The term stochastic refers to a process which periodically and apparently-independently happens but a kind of dependency exists. 
+
+In a stochastic search algorithm like GA, ACO, PSO etc., the randomness is controlled by some general rules governing the evolution (optimization) process. However, in a random search, in fact, we only have a local blind trial-and-error at each iteration to hopefully escape local solutions. In other words the GA has pretty much nothing to do with with random search.  However the random component of the algorithm (of the search) can be very important in some optimization problems and can be (must be) increased by increasing the mutation probability. Also, it should be noted that the mutation operator generates randomly a new solution in the vicinity, while a pure random search generates a new solution randomly in any point of the search space.
+
+By the end the idea of comparison goes naturally to GA which has much lower autocorrelation than random search – or Mote-Carlo search algorithm for the reasons stated above.  
